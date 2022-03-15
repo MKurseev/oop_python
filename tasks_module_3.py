@@ -65,12 +65,13 @@ class Vector:
         else:
             return print(f'Вектор нельзя умножать с {other}')
 
+
 # ____________________________________________________________________________________________
 # 3.4
 
 class ChessPlayer:
 
-    def __init__(self,name,surname, rating):
+    def __init__(self, name, surname, rating):
         self.name = name
         self.surname = surname
         self.rating = rating
@@ -99,11 +100,33 @@ class ChessPlayer:
         else:
             return 'Невозможно выполнить сравнение'
 
-magnus = ChessPlayer('Carlsen', 'Magnus', 2847)
-ian = ChessPlayer('Ian', 'Nepomniachtchi', 2789)
-print(magnus == 4000) # False
-print(ian == 2789) # True
-print(magnus == ian) # False
-print(magnus > ian) # True
-print(magnus < ian) # False
-print(magnus < [1, 2]) # печатает "Невозможно выполнить сравнениe"
+
+# ____________________________________________________________________________________________
+# 3.6 task 1
+
+class City:
+
+    def __init__(self, name):
+        self.name = name.title()
+
+    def __str__(self):
+        return self.name
+
+    def __bool__(self):
+        return self.name[-1] not in ('a', 'e', 'i', 'o', 'u')
+
+
+# ____________________________________________________________________________________________
+# 3.6 task 2
+
+class Quadrilateral:
+
+    def __init__(self, width, height=None):
+        self.height = height or width
+        self.width = width
+
+    def __str__(self):
+        return f'Куб размером {self.width}x{self.height}' if self.width == self.height else f'Прямоугольник размером {self.width}x{self.height}'
+
+    def __bool__(self):
+        return self.height == self.width
